@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>D3 Samples</title>
+		<style>
+			.chart {
+			}
+			.bar {
+				display: inline-block;
+				width: 20px;
+				height: 75px;
+				background-color: teal;
+				margin-right: 2px;
+			}
+		</style>
+	</head>
+	<body>
+		<svg width="500px" height="50px" style="display: block;">
+			<rect x="0" y="0" width="500" height="50"/>
+		</svg>
+		<svg width="500px" height="50px" style="display: block;">
+			<circle cx="250" cy="25" r="25"/>
+		</svg>
+		<svg width="500px" height="50px" style="display: block;">
+			<ellipse cx="250" cy="25" rx="100" ry="25"/>
+		</svg>
+		<svg width="500px" height="50px" style="display: block;">
+			<line x1="0" y1="0" x2="500" y2="50" stroke="black"/>
+		</svg>
+		<svg width="500px" height="50px" style="display: block;">
+			<text x="250" y="25">Easy-peasy</text>
+		</svg>
+		<svg width="500px" height="50px" style="display: block;">
+			<text x="250" y="25" font-family="sans-serif"
+			      font-size="25" fill="gray">Easy-peasy</text>
+		</svg>
+		<svg width="500px" height="50px" style="display: block;">
+			<text x="250" y="50" font-family="sans-serif"
+			      font-size="25" fill="gray">Easy-peasy</text>
+		</svg>
+		<script src='/app/build.js'></script>
+		<script>
+			var d3 = require('d3');
+
+		</script>
+	</body>
+</html>

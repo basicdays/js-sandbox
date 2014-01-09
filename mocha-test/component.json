@@ -1,0 +1,7 @@
+{
+	"name": "mocha-test",
+	"development": {
+		"component/assert": "*",
+		"visionmedia/mocha": "*"
+	}
+}

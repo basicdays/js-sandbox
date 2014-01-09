@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Mocha</title>
+		<meta charset='utf-8'>
+		<link rel='stylesheet' href='../build/test/build.css'/>
+	</head>
+	<body>
+		<div id='mocha'></div>
+		<div id='parent'>
+			<div id='child'></div>
+		</div>
+
+		<script src='../build/test/build.js'></script>
+		<script>
+			require('mocha');
+			mocha.setup('bdd');
+		</script>
+
+		<script src='tests.js'></script>
+		<script>
+			mocha.run();
+		</script>
+	</body>
+</html>

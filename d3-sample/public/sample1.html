@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>D3 Samples</title>
+		<style>
+			.chart {
+			}
+			.bar {
+				display: inline-block;
+				width: 20px;
+				height: 75px;
+				background-color: teal;
+				margin-right: 2px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="chart"></div>
+		<script src='/app/build.js'></script>
+		<script>
+			var d3 = require('d3');
+			var dataset = [ 25, 7, 5, 26, 11, 8, 25, 14, 23, 19,
+				14, 11, 22, 29, 11, 13, 12, 17, 18, 10,
+				24, 18, 25, 9, 3 ];
+
+			d3.select("div").selectAll("div")
+					.data(dataset)
+					.enter()
+					.append("div")
+					.attr('class', 'bar')
+					.style('height', function(d) {
+						var height = d * 5 + 1;
+						return height + 'px';
+					});
+		</script>
+	</body>
+</html>

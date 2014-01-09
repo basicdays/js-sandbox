@@ -1,0 +1,31 @@
+{
+  "name": "d3-sample",
+  "version": "0.0.1",
+  "description": "D3 sample scripts",
+  "main": "index.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:basicdays/d3-sample.git"
+  },
+  "keywords": [
+    "d3",
+    "sample"
+  ],
+  "author": "basicdays",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "dependencies": {
+    "express": "*"
+  },
+  "devDependencies": {
+    "component": "~0.17.2",
+    "jshint": "~2.1.10",
+    "mocha": "~1.12.1",
+    "chai": "~1.7.2",
+    "uglify-js": "~2.4.0",
+    "cssmin": "~0.4.1"
+  }
+}

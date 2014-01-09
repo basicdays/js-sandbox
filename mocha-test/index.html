@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Mocha</title>
+		<link rel="stylesheet" href="build/build.css"/>
+	</head>
+
+	<body>
+		<div id="mocha"></div>
+		<div id="parent">
+			<div id="child"></div>
+		</div>
+
+		<script src="build/build.js"></script>
+		<script>
+			var assert = require('assert');
+			require('visionmedia-mocha');
+			mocha.setup('bdd');
+
+			describe('Array', function() {
+				describe('#indexOf()', function() {
+					it('should return -1 when the value is not present', function() {
+						assert(-1 === [1,2,3].indexOf(5).indexOf(5));
+						assert(-1 === [1,2,3].indexOf(0).indexOf(0));
+					});
+				});
+			});
+			mocha.run();
+		</script>
+	</body>
+</html>

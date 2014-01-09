@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>D3 Samples</title>
+	</head>
+	<body>
+		<script src='/app/build.js'></script>
+		<script>
+			var d3 = require('d3');
+
+			var dataSet = [ 5, 10, 13, 19, 21, 25, 22, 18, 15, 13,
+				11, 12, 15, 20, 18, 17, 16, 18, 23, 25 ];
+
+			var width = 500;
+			var height = 100;
+			var barPadding = 1;
+
+			var svg = d3.select('body')
+					.append('svg')
+					.attr('width', width)
+					.attr('height', height);
+
+			svg.selectAll('rect')
+					.data(dataSet)
+					.enter()
+					.append('rect')
+					.attr('x', function(data, index) {
+						return index * (width / dataSet.length);
+					})
+					.attr('y', function(data) {
+						return height - (data * 4);
+					})
+					.attr('width', width / dataSet.length - barPadding)
+					.attr('height', function(data) {
+						return data * 4;
+					})
+					.attr('fill', function(data) {
+						return 'rgb(0, 0, ' + (data * 10) + ')';
+					});
+			svg.selectAll('text')
+					.data(dataSet)
+					.enter()
+					.append('text')
+					.text(function(data) {
+						return data;
+					})
+					.attr('x', function(data, index) {
+						return index * (width / dataSet.length) + (width / dataSet.length - barPadding) / 2;
+					})
+					.attr('y', function(data) {
+						return height - (data * 4) + 14;
+					})
+					.attr('font-family', 'sans-serif')
+					.attr('font-size', '11px')
+					.attr('fill', 'white')
+					.attr('text-anchor', 'middle');
+		</script>
+	</body>
+</html>

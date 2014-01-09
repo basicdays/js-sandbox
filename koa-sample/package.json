@@ -1,0 +1,25 @@
+{
+  "name": "koa-sample",
+  "version": "0.0.1",
+  "description": "Koa sample",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:basicdays/koa-sample.git"
+  },
+  "keywords": [
+    "koa",
+    "sample"
+  ],
+  "author": "basicdays",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/basicdays/koa-sample/issues"
+  },
+  "dependencies": {
+    "koa": "0.0.1"
+  }
+}

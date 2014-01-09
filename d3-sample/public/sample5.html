@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>D3 Samples</title>
+	</head>
+	<body>
+		<script src='/app/build.js'></script>
+		<script>
+			var d3 = require('d3');
+
+			var dataSet = [
+				[5, 20], [480, 90], [250, 50], [100, 33], [330, 95],
+				[410, 12], [475, 44], [25, 67], [85, 21], [220, 88]
+			];
+
+			var width = 500;
+			var height = 100;
+			var svg = d3.select('body')
+					.append('svg')
+					.attr('width', width)
+					.attr('height', height);
+
+			svg.selectAll('circle')
+					.data(dataSet)
+					.enter()
+					.append('circle')
+					.attr('cx', function(data) {
+						return data[0];
+					})
+					.attr('cy', function(data) {
+						return data[1];
+					})
+					.attr('r', 5);
+
+			svg.selectAll('text')
+					.data(dataSet)
+					.enter()
+					.append('text')
+					.text(function(data) {
+						return data[0] + ',' + data[1];
+					})
+					.attr('x', function(data) {
+						return data[0];
+					})
+					.attr('y', function(data) {
+						return data[1];
+					})
+					.attr('font-family', 'sans-serif')
+					.attr('font-size', '11px')
+					.attr('fill', 'red');
+		</script>
+	</body>
+</html>

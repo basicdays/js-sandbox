@@ -1,0 +1,11 @@
+# node
+node_modules
+build
+components
+
+# ide
+.idea/workspace.xml
+
+# misc
+.directory
+*.kate-swp

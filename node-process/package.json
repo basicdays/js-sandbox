@@ -1,0 +1,16 @@
+{
+  "name": "node_process",
+  "version": "0.0.0",
+  "description": "Spawn a process",
+  "main": "index.js",
+  "dependencies": {
+    "clone-component": "~0.1.0",
+    "mocha": "~1.14.0",
+    "chai": "~1.8.1"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "basicdays <info@basicdays.com> (http://basicdays.com)",
+  "license": "MIT"
+}
