@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+	<head>
+		<title>test request</title>
+	</head>
+	<body>
+		<script src="/lib/jquery-1.11.0.js"></script>
+		<script src="/lib/i18next-1.7.2.js"></script>
+		<script src="/lib/handlebars-v1.3.0.js"></script>
+		<script src="/lib/templates.js"></script>
+		<script>
+(function() {
+	'use strict';
+	var slice = Array.prototype.slice,
+	    lang = 'en-US';
+
+	function prime() {
+		//ie8 polyfill since i18next uses trim
+		if (!String.prototype.trim) {
+			String.prototype.trim = function () {
+				return this.replace(/^\s+|\s+$/g, '');
+			};
+		}
+
+		lang = document.querySelector('html').getAttribute('lang');
+		i18n.init({
+			resGetPath: '/locales/__ns__/__lng__.json',
+			ns: 'i18n-quick',
+			lng: lang,
+			fallbackLng: false,
+			load: 'current',
+			useCookie: false
+		}, function() {
+			if (!window.Intl) {
+				jQuery.ajax({
+					type: 'get',
+					dataType: "script",
+					cache: false,
+					url: '/locales/intl/Intl.' + lang + '.js'
+				})
+				.then(function success() {
+					boot();
+				}, function fail(err) {
+					throw new Error('Failed to load Intl polyfill: ' + err);
+				});
+			} else {
+				boot();
+			}
+		});
+	}
+
+	function boot() {
+		Handlebars.registerHelper('t', function(key, options) {
+			return i18n.t(key, options.hash);
+		});
+
+		Handlebars.registerHelper('tf', function(key) {
+			var formatParams = slice.call(arguments, 1, arguments.length - 1);
+			var hash = slice.call(arguments, arguments.length - 1)[0].hash;
+			hash.postProcess = 'sprintf';
+			hash.sprintf = formatParams;
+			return i18n.t(key, hash);
+		});
+
+		render();
+	}
+
+	function render() {
+		var now = new Date();
+		var dates = {
+			date: new Intl.DateTimeFormat(lang, {weekday: "short", month: "short", day: "numeric", year: "numeric"}).format(now),
+			weekday: new Intl.DateTimeFormat(lang, {weekday: "long"}).format(now),
+			monthDay: new Intl.DateTimeFormat(lang, {month: "short", "day": "numeric"}).format(now)
+		};
+
+		var template = $(Handlebars.templates.quick(dates))[0];
+		document.querySelector('body').appendChild(template);
+	}
+
+	prime();
+}());
+		</script>
+	</body>
+</html>
